@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\appointment;
 use Illuminate\Http\Request;
+use App\Http\Requests\AppointmentFormRequest;
 
-class AppointmentCTRL extends Controller
+class CTRLAppointment extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('appointment.add-appointment');
+        return view('appointment.appointment-list');
     }
 
     /**
@@ -19,15 +21,18 @@ class AppointmentCTRL extends Controller
      */
     public function create()
     {
-        //
+        return view('appointment.add-appointment');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AppointmentFormRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $appointment = appointment::create($data);
+        return redirect('add-appointment');
     }
 
     /**
