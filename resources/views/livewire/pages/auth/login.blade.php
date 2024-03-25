@@ -17,7 +17,23 @@ $login = function () {
 
     Session::regenerate();
 
+    $userRole=Auth::user()->role;
+
+    switch ($userRole) {
+        case 1:
+        $this->redirectIntended(default: route('admin', absolute: false), navigate: true);
+            break;
+        case 2:
+        $this->redirectIntended(default: route('doctor', absolute: false), navigate: true);
+            break;
+        case 3:
     $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+
+        default:
+            return redirect('dashboard');
+            
+    }
+
 };
 
 ?>
