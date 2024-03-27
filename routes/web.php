@@ -11,6 +11,11 @@ Route::post('add-appointment', [CTRLAppointment::class, 'store'])->name('add.app
 
 Route::get('appointment-list', [CTRLAppointment::class, 'index'])->name('appointment.list');
 
+Route::get('/edit-appointment/{appointment_id}', [CTRLAppointment::class, 'edit'])->name('edit.appointment');
+
+Route::put('/update-appointment/{appointment_id}', [CTRLAppointment::class, 'update'])->name('update.appointment');
+
+Route::delete('/delete-appointment/{appointment_id}', [CTRLAppointment::class, 'delete'])->name('delete.appointment');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified', 'user'])

@@ -13,7 +13,8 @@ class CTRLAppointment extends Controller
      */
     public function index()
     {
-        return view('appointment.appointment-list');
+        $appointments = appointment::all();
+        return view('appointment.appointment-list', compact('appointments'));
     }
 
     /**
@@ -32,7 +33,7 @@ class CTRLAppointment extends Controller
         $data = $request->validated();
 
         $appointment = appointment::create($data);
-        return redirect('add-appointment');
+        return redirect('add-appointment')->with('message', 'Your Appointment is added.');
     }
 
     /**
@@ -46,17 +47,27 @@ class CTRLAppointment extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($appointment_id)
     {
-        //
+        $appointment = appointment::find($appointment_id);
+        return view('appointment.edit-appointment', compact('appointment'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AppointmentFormRequest $request, $appointment_id)
     {
-        //
+        $data = $request->validated();
+
+        $appointment = appointment::where('id', $appointment_id)->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'address' => $data['address'],
+            'appointment' => $data['appointment']
+        ]);
+
+        return redirect('/appointment-list')->with('message', 'Apppointment Changed');
     }
 
     /**
