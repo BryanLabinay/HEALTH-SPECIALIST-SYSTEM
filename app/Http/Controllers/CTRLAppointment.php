@@ -73,8 +73,9 @@ class CTRLAppointment extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($appointment_id)
     {
-        //
+        $appointment = appointment::find($appointment_id)->delete();
+        return redirect('/appointment-list')->with('message', 'Appointment is Remove');
     }
 }

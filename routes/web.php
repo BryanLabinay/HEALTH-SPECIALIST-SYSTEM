@@ -15,7 +15,7 @@ Route::get('/edit-appointment/{appointment_id}', [CTRLAppointment::class, 'edit'
 
 Route::put('/update-appointment/{appointment_id}', [CTRLAppointment::class, 'update'])->name('update.appointment');
 
-Route::delete('/delete-appointment/{appointment_id}', [CTRLAppointment::class, 'delete'])->name('delete.appointment');
+Route::delete('/delete-appointment/{appointment_id}', [CTRLAppointment::class, 'destroy'])->name('delete.appointment');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified', 'user'])
