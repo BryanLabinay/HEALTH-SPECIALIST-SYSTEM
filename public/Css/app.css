@@ -13,7 +13,10 @@
     caret-color: transparent;
     background-color: var(--bg-slate-2);
 }
-.input {
+.caret {
+    caret-color: transparent;
+}
+.input:focus {
     caret-color: var(--white);
 }
 .input1 {

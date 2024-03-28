@@ -30,7 +30,7 @@ $logout = function (Logout $logout) {
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('add.appointment')" :active="request()->routeIs('add.appointment')" wire:navigate>
-                        {{ __('Add Schedule') }}
+                        {{ __('Add Appointment') }}
                     </x-nav-link>
                 </div>
 

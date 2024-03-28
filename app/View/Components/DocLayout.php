@@ -21,6 +21,6 @@ class DocLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.doc-layout');
+        return view('layouts.doc-layout');
     }
 }
