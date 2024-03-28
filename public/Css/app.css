@@ -1,0 +1,27 @@
+* {
+    font-family: "Poppins";
+}
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --bg-slate-1: #94a3b8;
+    --bg-slate-2: #64748b;
+}
+
+.body {
+    caret-color: transparent;
+    background-color: var(--bg-slate-2);
+}
+.input {
+    caret-color: var(--white);
+}
+.input1 {
+    caret-color: var(--black);
+}
+.logo {
+    height: 3rem;
+}
+.background-color {
+    background-color: var(--bg-slate-1);
+}
